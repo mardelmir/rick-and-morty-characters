@@ -73,9 +73,33 @@ table {
 }
 
 ul {  
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
   padding-top: 100px;
   list-style: none;
 }
 
+li {
+  margin-top: 10px;
+  width: 320px;
+}
+
+figure {
+  width: fit-content;
+  padding: 8px;
+  border: solid #DDDDDD;
+}
+
+figcaption {
+  margin-top: 5px;
+}
+
+.bold {
+  font-weight: bold;
+  font-size: large;
+}
 
 

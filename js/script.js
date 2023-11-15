@@ -1,5 +1,6 @@
-const list = document.getElementById('character-list');
+// Fetch API
 
+const list = document.getElementById('character-list');
 
 fetch('https://rickandmortyapi.com/api/character/')
     .then((response) => {
@@ -8,36 +9,31 @@ fetch('https://rickandmortyapi.com/api/character/')
         }
         return response.json()
     })
+
     .then((data) => {
         const array = data.results;
 
         array.filter((element) => {
             let item = document.createElement('li');
-            list. appendChild(item)
+            list.appendChild(item);
 
-            let card = document.createElement('figure');
-            item.appendChild(card);
+            let fig = document.createElement('figure');
+            item.appendChild(fig);
 
-            let info = document.createElement('figcaption');
-            card.appendChild(info);
-
-            let name = element.name;
-            let species = element.species;
-            info.innerHTML = `<b>Nombre:</b> ${name}`
-            
             let img = document.createElement('img');
             img.src = element.image;
-            img.alt = `Imagen de ${name}`;
-            
-            card.appendChild(img);
-            img.insertAdjacentElement('afterend',info )
+            img.alt = `Image of ${element.name}`;
+            img.classList.add('picture')
+            fig.appendChild(img)
 
-        })})
-    .catch((error) => {
-        character.inner
+            let figcap = document.createElement('figcaption');
+            figcap.innerHTML = `<span class="bold">Name:</span> ${element.name} <br /> <span class="bold">Species:</span> ${element.species}`;
+            fig.appendChild(figcap)
+
+        })
     })
-    
 
-        
-        
-        
+    .catch((error) => {
+        const errorMsg = document.createElement('p')
+        errorMsg.textContent = 'Error: no se pudo obtener el contenido';
+    });
