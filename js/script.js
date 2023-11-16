@@ -1,6 +1,5 @@
 
 const list = document.getElementById('character-list');
-
 const prevBtn = document.getElementById('prev-page');
 const nextBtn = document.getElementById('next-page');
 
