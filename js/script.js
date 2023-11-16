@@ -42,8 +42,8 @@ const character = (url) => {
 }
 
 prevBtn.addEventListener('click', () => {
-    if (page <= 0) {
-        list.innerHTML = '<li class="prev-next">No hay más contenido para mostrar</li>';
+    if (page < 1) {
+        list.innerHTML = '<li class="prev-next">No hay más contenido para mostraar</li>';
     } else {
         list.innerHTML = '';
         page--;
@@ -56,7 +56,7 @@ nextBtn.addEventListener('click', () => {
     if (page > 41) {
         list.innerHTML = '<li class="prev-next">No hay más contenido para mostrar</li>';
     } else {
-        list.innerHTML='';
+        list.innerHTML = '';
         page++;
         url = `https://rickandmortyapi.com/api/character/?page=${page}`;
         return character(url);
