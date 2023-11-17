@@ -1,4 +1,3 @@
-
 const list = document.getElementById('character-list');
 const prevBtn = document.getElementById('prev-page');
 const nextBtn = document.getElementById('next-page');
@@ -6,6 +5,8 @@ const nextBtn = document.getElementById('next-page');
 let page = 0;
 let url = `https://rickandmortyapi.com/api/character/?page=${page}`;
 
+
+// Función principal
 const character = (url) => {
     fetch(url)
         .then((response) => {
@@ -16,6 +17,7 @@ const character = (url) => {
         })
         .then((data) => {
             const array = data.results;
+            console.log(array);
             array.filter((element) => {
                 let item = document.createElement('li');
                 list.appendChild(item);
@@ -29,7 +31,7 @@ const character = (url) => {
                 fig.appendChild(img);
 
                 let figcap = document.createElement('figcaption');
-                figcap.innerHTML = `<span>Name:</span> ${element.name} <br /> <span>Species:</span> ${element.species}`; // Se que esta línea es horrenda, pero no he sabido hacerlo de otra manera.
+                figcap.innerHTML = `<span>Name:</span> ${element.name} <br /> <span>Species:</span> ${element.species}`; // Esta línea es horrenda, pero no he sabido hacerlo de otra manera.
                 fig.appendChild(figcap);
             })
         })
@@ -40,9 +42,11 @@ const character = (url) => {
         });
 }
 
+
+// Botones
 prevBtn.addEventListener('click', () => {
     if (page < 1) {
-        list.innerHTML = '<li class="prev-next">No hay más contenido para mostraar</li>';
+        list.innerHTML = '<li class="prev-next">No hay más contenido para mostrar</li>';
     } else {
         list.innerHTML = '';
         page--;
