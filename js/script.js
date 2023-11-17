@@ -17,8 +17,8 @@ const character = (url) => {
         })
         .then((data) => {
             const array = data.results;
-            console.log(array);
-            array.filter((element) => {
+            array.forEach((element) => { 
+                // list.innerHTML ='';
                 let item = document.createElement('li');
                 list.appendChild(item);
 
@@ -41,6 +41,24 @@ const character = (url) => {
             errorMsg.textContent = 'Error: no se pudo obtener el contenido';
         });
 }
+
+// .catch (error => console.log('error de petición:', error)) vale también.
+
+/* 
+    for (const element of array) {
+        const template = `
+            <li>
+                <figure>
+                    <img src="${element.img} alt="Image of ${element.name}/>
+                    <figcaption>
+                        <span>Name:</span> ${element.name} <br /> 
+                        <span>Species:</span> ${element.species}
+                    </figcaption>
+                </figure>
+            </li> `
+        list.innerHTML += template
+    }
+*/
 
 
 // Botones
